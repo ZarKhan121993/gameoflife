@@ -1,9 +1,6 @@
 pipeline{
     agent{
-        label{
-            label "label1"
-            customWorkspace "/mnt/slave1/project"
-        }
+            label "slave1"
     }
     stages{
         stage('build'){
