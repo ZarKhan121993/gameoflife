@@ -1,20 +1,23 @@
 pipeline{
     agent{
-        label "slave1"
+        label{
+             label "slave1"
+             customWorkspace "/mnt/data"
+        }  
     }
 
     stages{
         stage('build'){
             steps{
-  
-                sh "sudo mvn install"
+                    sh "rm -rf *"
+                    sh "mvn install"
             }
         }
          stage('docker'){
             steps{
-                sh "sudo yum install docker -y"
-                sh "sudo service docker start"
-                sh "sudo docker run -itdp 8080:8080 -v --name tomact tomcat"
+                sh "yum install docker -y"
+                sh "service docker start"
+                sh "docker run -itdp 8080:8080 -v --name tomact tomcat"
             }
         }
     }
