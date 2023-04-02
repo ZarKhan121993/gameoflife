@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('build'){
             steps{
-                sh "rm -rf /mnt/slave1/workspace/job1"
+  
                 sh "sudo mvn install"
             }
         }
