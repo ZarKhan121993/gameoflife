@@ -12,6 +12,7 @@ pipeline{
         }
          stage('docker'){
             steps{
+                sh "sudo yum install docker -y"
                 sh "sudo docker run -itdp 8080:8080 -v --name tomact tomcat"
             }
         }
