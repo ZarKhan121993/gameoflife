@@ -10,7 +10,7 @@ pipeline{
         stage('build'){
             steps{
                     sh "rm -rf *"
-                    sh "mvn install"
+                    sh "mvn clean install"
             }
         }
          stage('docker'){
